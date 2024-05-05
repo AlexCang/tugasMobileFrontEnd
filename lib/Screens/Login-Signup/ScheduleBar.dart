@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/Screens/Views/ScheduleScreenCompleted.dart';
+import 'package:medical/Screens/Views/Settings.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class schedule_screen extends StatefulWidget {
@@ -28,13 +29,24 @@ class _TabBarExampleState extends State<schedule_screen>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          "   Top Doctors",
-          style: GoogleFonts.poppins(color: Colors.black, fontSize: 18.sp),
+        title: Column(
+          children: [
+            const SizedBox(
+              height: 1,
+            ),
+            Text(
+              "Schedules",
+              style: GoogleFonts.inter(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1),
+            ),
+          ],
         ),
         centerTitle: false,
         elevation: 0,
@@ -42,37 +54,46 @@ class _TabBarExampleState extends State<schedule_screen>
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 20,
-              width: 20,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage("lib/icons/bell.png"),
-              )),
-            ),
+            child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.06,
+                  child: Image.asset(
+                    "lib/icons/bell.png",
+                    filterQuality: FilterQuality.high,
+                  ),
+                )),
           ),
         ],
-        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 00),
           child: Column(
             children: [
               Container(
+                color: const Color.fromARGB(255, 121, 121, 121),
                 height: MediaQuery.of(context).size.height,
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
                       child: Container(
                         // height: 50,
                         width: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Color.fromARGB(255, 235, 235, 235)),
-                          color: Color.fromARGB(255, 241, 241, 241),
+                          border: Border.all(color: theme.colorScheme.surface),
+                          color: theme.colorScheme.surface,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
@@ -85,10 +106,8 @@ class _TabBarExampleState extends State<schedule_screen>
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 indicatorColor:
-                                    const Color.fromARGB(255, 241, 241, 241),
-                                unselectedLabelColor:
-                                    const Color.fromARGB(255, 32, 32, 32),
-                                labelColor: Color.fromARGB(255, 255, 255, 255),
+                                    Color.fromARGB(255, 255, 255, 255),
+                                labelColor: theme.colorScheme.surface,
                                 controller: tabController,
                                 tabs: const [
                                   Tab(

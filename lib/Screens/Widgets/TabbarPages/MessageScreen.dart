@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/Screens/Views/Settings.dart';
 import 'package:medical/Screens/Widgets/Message_all_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -28,13 +29,24 @@ class _TabBarExampleState extends State<message_tab_all>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false, // Remove the back button
-        title: Text(
-          "Messages",
-          style: GoogleFonts.poppins(color: Colors.black, fontSize: 18.sp),
+        title: Column(
+          children: [
+            SizedBox(
+              height: 1,
+            ),
+            Text(
+              "Messages",
+              style: GoogleFonts.inter(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1),
+            ),
+          ],
         ),
         centerTitle: false,
         elevation: 0,
@@ -42,17 +54,26 @@ class _TabBarExampleState extends State<message_tab_all>
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 20,
-              width: 20,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage("lib/icons/bell.png"),
-              )),
-            ),
+            child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.06,
+                  child: Image.asset(
+                    "lib/icons/bell.png",
+                    filterQuality: FilterQuality.high,
+                  ),
+                )),
           ),
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.surface,
       ),
       body: Column(children: [
         message_all_widget(

@@ -10,6 +10,7 @@ class listIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Row(
@@ -21,7 +22,7 @@ class listIcons extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.15,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: theme.colorScheme.surface,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: const [
                       BoxShadow(
@@ -38,7 +39,7 @@ class listIcons extends StatelessWidget {
               ),
               Text(
                 text,
-                style: GoogleFonts.inter(fontSize: 15.sp, color: Colors.grey),
+                style: GoogleFonts.inter(fontSize: 15.sp),
               )
             ],
           ),

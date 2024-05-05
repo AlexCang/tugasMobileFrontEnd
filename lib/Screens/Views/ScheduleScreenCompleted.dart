@@ -7,11 +7,8 @@ class shedule_tab1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 121, 121, 121),
       body: Column(children: [
-        const SizedBox(
-          height: 30,
-        ),
         shedule_card(
           confirmation: "Confirmed",
           mainText: "Dr. Marcus Horizon",

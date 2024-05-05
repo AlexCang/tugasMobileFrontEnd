@@ -15,6 +15,7 @@ class Auth_text_field extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
@@ -28,7 +29,7 @@ class Auth_text_field extends StatelessWidget {
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             focusColor: Colors.black26,
-            fillColor: Color.fromARGB(255, 247, 247, 247),
+            fillColor: theme.colorScheme.surface,
             filled: true,
             prefixIcon: Padding(
               padding: const EdgeInsets.symmetric(

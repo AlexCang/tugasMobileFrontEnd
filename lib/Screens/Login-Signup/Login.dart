@@ -73,7 +73,7 @@ class login extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 15.sp,
                     color: const Color.fromARGB(255, 3, 190, 150),
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.bold),
               ),
             )
           ]),

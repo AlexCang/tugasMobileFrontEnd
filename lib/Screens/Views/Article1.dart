@@ -9,6 +9,7 @@ class art1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,21 +24,7 @@ class art1 extends StatelessWidget {
                       type: PageTransitionType.fade, child: Homepage()));
             }),
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
-            child: Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.06,
-              child: Image.asset(
-                "lib/icons/bell.png",
-                filterQuality: FilterQuality.high,
-              ),
-            ),
-          ),
-        ],
+        backgroundColor: theme.colorScheme.surface,
         title: Column(
           children: [
             SizedBox(
@@ -46,14 +33,13 @@ class art1 extends StatelessWidget {
             Text(
               "COVID-19",
               style: GoogleFonts.inter(
-                  color: Color.fromARGB(255, 51, 47, 47),
                   fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1),
             ),
           ],
         ),
-        toolbarHeight: 80,
+        toolbarHeight: 100,
         elevation: 0,
       ),
       body: SingleChildScrollView(

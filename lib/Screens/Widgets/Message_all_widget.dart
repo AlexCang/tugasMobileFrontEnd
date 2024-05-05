@@ -17,6 +17,7 @@ class message_all_widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Column(children: [
         SizedBox(
@@ -25,7 +26,9 @@ class message_all_widget extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height * 0.08,
           width: MediaQuery.of(context).size.width * 0.9,
-          color: Colors.white,
+          decoration: BoxDecoration(
+              color: theme.colorScheme.surface,
+              borderRadius: BorderRadius.circular(10)),
           child: Row(children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.06,
@@ -43,7 +46,6 @@ class message_all_widget extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width * 0.6,
-              color: Colors.white,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -55,7 +57,6 @@ class message_all_widget extends StatelessWidget {
                       Maintext,
                       style: GoogleFonts.poppins(
                         fontSize: 15,
-                        color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -64,7 +65,6 @@ class message_all_widget extends StatelessWidget {
                       subtext,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
-                        color: Colors.black,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -78,7 +78,9 @@ class message_all_widget extends StatelessWidget {
                   height: 10,
                 ),
                 //Time of chat text here e.g 10:24
-                Text(time),
+                Text(
+                  time,
+                ),
                 const SizedBox(
                   height: 10,
                 ),

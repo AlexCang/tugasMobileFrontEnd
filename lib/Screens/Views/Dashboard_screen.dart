@@ -6,28 +6,43 @@ import 'package:medical/Screens/Widgets/Banner.dart';
 import 'package:medical/Screens/Widgets/List_doctor1.dart';
 import 'package:medical/Screens/Widgets/ListIcons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:medical/Screens/Views/Settings.dart';
+import 'package:provider/provider.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+  @override
+  State<Dashboard> createState() => DashboardState();
+}
 
+class DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: theme.colorScheme.surface,
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.06,
-              child: Image.asset(
-                "lib/icons/bell.png",
-                filterQuality: FilterQuality.high,
-              ),
-            ),
+            child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.06,
+                  child: Image.asset(
+                    "lib/icons/bell.png",
+                    filterQuality: FilterQuality.high,
+                  ),
+                )),
           ),
         ],
         title: Column(
@@ -38,7 +53,6 @@ class Dashboard extends StatelessWidget {
             Text(
               "Find your desire\nhealth solution",
               style: GoogleFonts.inter(
-                  color: Color.fromARGB(255, 51, 47, 47),
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 1),
@@ -48,7 +62,7 @@ class Dashboard extends StatelessWidget {
         toolbarHeight: 130,
         elevation: 0,
       ),
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: theme.colorScheme.surface,
       body: SingleChildScrollView(
         child: Column(children: [
           SizedBox(
@@ -67,8 +81,8 @@ class Dashboard extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
-                  focusColor: Colors.black26,
-                  fillColor: Color.fromARGB(255, 247, 247, 247),
+                  focusColor: const Color.fromRGBO(0, 0, 0, 0.259),
+                  fillColor: theme.colorScheme.surface,
                   filled: true,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -83,8 +97,8 @@ class Dashboard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  prefixIconColor: const Color.fromARGB(255, 3, 190, 150),
                   label: Text("Search doctor, drugs, articles..."),
+                  prefixIconColor: theme.colorScheme.surface,
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
@@ -127,14 +141,12 @@ class Dashboard extends StatelessWidget {
                   style: GoogleFonts.inter(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    color: Color.fromARGB(255, 46, 46, 46),
                   ),
                 ),
                 Text(
                   "See all",
                   style: GoogleFonts.inter(
                     fontSize: 16.sp,
-                    color: const Color.fromARGB(255, 3, 190, 150),
                   ),
                 ),
               ],
@@ -187,14 +199,12 @@ class Dashboard extends StatelessWidget {
                   style: GoogleFonts.inter(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    color: Color.fromARGB(255, 46, 46, 46),
                   ),
                 ),
                 Text(
                   "See all",
                   style: GoogleFonts.inter(
                     fontSize: 16.sp,
-                    color: const Color.fromARGB(255, 3, 190, 150),
                   ),
                 ),
               ],

@@ -102,12 +102,14 @@ class _registerState extends State<register> {
                 onChanged: (value) {
                   setState(() => isChecked = value!);
                 },
+                activeColor: Colors.black,
+                checkColor: Colors.white,
               ),
               Text(
                 "I agree to the terms and conditions",
                 style: GoogleFonts.poppins(
+                  color: Colors.black,
                   fontSize: 14.sp,
-                  color: Colors.black87,
                 ),
               ),
             ],

@@ -18,11 +18,12 @@ class list_doctor1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Color.fromARGB(134, 228, 227, 227)),
         ),
@@ -63,9 +64,7 @@ class list_doctor1 extends StatelessWidget {
                   Text(
                     subtext,
                     style: GoogleFonts.poppins(
-                        fontSize: 11.sp,
-                        color: Colors.black45,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 11.sp, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 15,
@@ -119,9 +118,7 @@ class list_doctor1 extends StatelessWidget {
                       Text(
                         distance,
                         style: GoogleFonts.poppins(
-                            fontSize: 11.sp,
-                            color: Color.fromARGB(255, 133, 133, 133),
-                            fontWeight: FontWeight.bold),
+                            fontSize: 11.sp, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

@@ -30,10 +30,12 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: pages[page], // Display the selected page
       bottomNavigationBar: AnimatedBottomNavigationBar(
+        backgroundColor: theme.colorScheme.surface,
         icons: icons,
         iconSize: 20,
         activeIndex: page,

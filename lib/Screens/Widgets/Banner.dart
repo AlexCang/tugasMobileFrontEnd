@@ -7,12 +7,13 @@ class banner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.16,
         decoration: BoxDecoration(
-          color: Color.fromARGB(153, 236, 232, 232),
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(15),
         ),
         child:
@@ -27,9 +28,9 @@ class banner extends StatelessWidget {
               Text(
                 "Early protection for\nyour family health",
                 style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black87),
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               SizedBox(
                 height: 10,

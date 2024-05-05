@@ -10,8 +10,9 @@ class Profile_screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 226, 215),
+      backgroundColor: Color.fromARGB(255, 105, 105, 105),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -196,8 +197,8 @@ class Profile_screen extends StatelessWidget {
             Container(
               height: 550,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
+              decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30))),
@@ -208,7 +209,6 @@ class Profile_screen extends StatelessWidget {
                 profile_list(
                   image: "lib/icons/heart2.png",
                   title: "My Saved",
-                  color: Colors.black87,
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -217,7 +217,6 @@ class Profile_screen extends StatelessWidget {
                 profile_list(
                   image: "lib/icons/appoint.png",
                   title: "Appointment",
-                  color: Colors.black87,
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -226,7 +225,6 @@ class Profile_screen extends StatelessWidget {
                 profile_list(
                   image: "lib/icons/chat.png",
                   title: "FAQs",
-                  color: Colors.black87,
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -235,7 +233,6 @@ class Profile_screen extends StatelessWidget {
                 profile_list(
                   image: "lib/icons/pay.png",
                   title: "Payment Method",
-                  color: Colors.black87,
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -253,7 +250,6 @@ class Profile_screen extends StatelessWidget {
                   child: profile_list(
                     image: "lib/icons/logout.png",
                     title: "Log out",
-                    color: Colors.red,
                   ),
                 )
               ]),

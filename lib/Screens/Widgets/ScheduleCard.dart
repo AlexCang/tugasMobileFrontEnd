@@ -20,12 +20,13 @@ class shedule_card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.22,
         width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.black12),
         ),
@@ -48,9 +49,9 @@ class shedule_card extends StatelessWidget {
                         Text(
                           subText,
                           style: GoogleFonts.poppins(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w600,
-                              color: const Color.fromARGB(255, 99, 99, 99)),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ]),
                 ),
@@ -88,9 +89,9 @@ class shedule_card extends StatelessWidget {
               Text(
                 date,
                 style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color.fromARGB(255, 99, 99, 99)),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.03,
@@ -105,9 +106,9 @@ class shedule_card extends StatelessWidget {
               Text(
                 time,
                 style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color.fromARGB(255, 99, 99, 99)),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.03,
@@ -122,9 +123,9 @@ class shedule_card extends StatelessWidget {
               Text(
                 confirmation,
                 style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color.fromARGB(255, 99, 99, 99)),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ]),
           ),
@@ -137,7 +138,7 @@ class shedule_card extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.04500,
                   width: MediaQuery.of(context).size.width * 0.3800,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 232, 233, 233),
+                    color: Color.fromARGB(255, 4, 190, 144),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
@@ -146,9 +147,10 @@ class shedule_card extends StatelessWidget {
                         Text(
                           "Cancel",
                           style: GoogleFonts.poppins(
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 61, 61, 61)),
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
                         ),
                       ]),
                 ),

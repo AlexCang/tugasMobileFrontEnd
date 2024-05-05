@@ -17,13 +17,14 @@ class article extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
         width: MediaQuery.of(context).size.width * 0.8500,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: const Color.fromARGB(255, 231, 231, 231)),
         ),
@@ -66,7 +67,6 @@ class article extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 0, 136, 102),
                       ),
                     ),
                   ],
