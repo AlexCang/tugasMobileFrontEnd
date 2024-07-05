@@ -28,7 +28,7 @@ class shedule_card extends StatelessWidget {
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.black12),
+          border: Border.all(color: const Color.fromARGB(255, 226, 226, 226)),
         ),
         child: Column(children: [
           Row(

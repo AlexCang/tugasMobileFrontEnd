@@ -4,6 +4,7 @@ import 'package:medical/Screens/Login-Signup/Login.dart';
 import 'package:medical/Screens/On_Board/Board1.dart';
 import 'package:medical/Screens/On_Board/Board2.dart';
 import 'package:medical/Screens/On_Board/Board3.dart';
+import 'package:medical/Screens/Views/Dashboard_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -32,13 +33,13 @@ class _on_boardingState extends State<on_boarding> {
                 onLastpage = (index == 2);
               });
             },
-            children: [
+            children: const [
               on_board1(),
               on_board2(),
               on_board3(),
             ]),
         Container(
-          alignment: Alignment(-0.6, 0.75),
+          alignment: const Alignment(-0.6, 0.75),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -48,7 +49,7 @@ class _on_boardingState extends State<on_boarding> {
                         context,
                         PageTransition(
                             type: PageTransitionType.bottomToTop,
-                            child: login()));
+                            child: const login()));
                   },
                   child: Text(
                     "Skip",
@@ -57,14 +58,14 @@ class _on_boardingState extends State<on_boarding> {
               SmoothPageIndicator(
                 controller: _controller,
                 count: 3,
-                effect: SlideEffect(
+                effect: const SlideEffect(
                     spacing: 4.0,
                     radius: 4.0,
                     dotWidth: 14.0,
                     dotHeight: 7.0,
                     strokeWidth: 1.5,
                     dotColor: Color.fromARGB(255, 170, 255, 237),
-                    activeDotColor: const Color.fromARGB(255, 3, 190, 150)),
+                    activeDotColor: Color.fromARGB(255, 3, 190, 150)),
               ),
               onLastpage
                   ? GestureDetector(
@@ -73,7 +74,7 @@ class _on_boardingState extends State<on_boarding> {
                             context,
                             PageTransition(
                                 type: PageTransitionType.bottomToTop,
-                                child: login()));
+                                child: const login()));
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.05,
@@ -106,7 +107,7 @@ class _on_boardingState extends State<on_boarding> {
                   : GestureDetector(
                       onTap: () {
                         _controller.nextPage(
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeIn);
                       },
                       child: Container(

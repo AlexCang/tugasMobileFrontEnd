@@ -5,35 +5,37 @@ import 'package:medical/Screens/Login-Signup/register.dart';
 import 'package:medical/Screens/Views/HomePage.dart';
 import 'package:medical/Screens/Widgets/Auth_text_field.dart';
 import 'package:medical/Screens/Widgets/Auth_social_login.dart';
+import 'package:medical/Screens/Widgets/user_data.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class login extends StatelessWidget {
-  const login({Key? key});
+class login extends StatefulWidget {
+  const login({Key? key}) : super(key: key);
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    String email = "";
-    String password = "";
-
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           "Login",
           style: GoogleFonts.inter(
-              color: Colors.black87,
-              fontSize: 22.sp,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0),
+              fontSize: 22.sp, fontWeight: FontWeight.w700, letterSpacing: 0),
         ),
         toolbarHeight: 110,
-        backgroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.surface,
         elevation: 0,
       ),
       body: Padding(
@@ -42,7 +44,6 @@ class login extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          // Text field Login import from Auth_text_field widget
           Auth_text_field(
               text: "Enter your email",
               icon: "lib/icons/email.png",
@@ -50,15 +51,12 @@ class login extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          // Text field Password
-          // Text field Password
           Auth_text_field(
             text: "Enter your password",
             icon: "lib/icons/lock.png",
             controller: passwordController,
-            obscureText: true, // Set obscureText to true
+            obscureText: true,
           ),
-
           Row(mainAxisAlignment: MainAxisAlignment.end, children: [
             GestureDetector(
               onTap: () {
@@ -80,7 +78,7 @@ class login extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
             width: MediaQuery.of(context).size.width * 0.9,
             child: ElevatedButton(
@@ -88,7 +86,8 @@ class login extends StatelessWidget {
                 // Perform verification or other actions here
                 String enteredEmail = emailController.text.trim();
                 String enteredPassword = passwordController.text.trim();
-                if (enteredEmail == email && enteredPassword == password) {
+                if (enteredEmail == UserData.email &&
+                    enteredPassword == UserData.password) {
                   Navigator.pushReplacement(
                       context,
                       PageTransition(
@@ -99,12 +98,12 @@ class login extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text("Invalid Credentials"),
-                        content:
-                            Text("Please enter correct email and password."),
+                        title: const Text("Invalid Credentials"),
+                        content: const Text(
+                            "Please enter correct email and password."),
                         actions: <Widget>[
                           TextButton(
-                            child: Text("OK"),
+                            child: const Text("OK"),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
@@ -116,7 +115,7 @@ class login extends StatelessWidget {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 3, 190, 150),
+                backgroundColor: const Color.fromARGB(255, 3, 190, 150),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -126,14 +125,14 @@ class login extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   fontSize: 18.sp,
-                  color: Color.fromARGB(255, 255, 255, 255),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0,
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
@@ -141,8 +140,7 @@ class login extends StatelessWidget {
             children: [
               Text(
                 "Don't have an account? ",
-                style:
-                    GoogleFonts.poppins(fontSize: 15.sp, color: Colors.black87),
+                style: GoogleFonts.poppins(fontSize: 15.sp),
               ),
               GestureDetector(
                 onTap: () {
@@ -171,7 +169,7 @@ class login extends StatelessWidget {
             children: [
               Expanded(child: Divider()),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   "or",
                   style: TextStyle(

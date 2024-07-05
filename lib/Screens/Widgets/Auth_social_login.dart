@@ -10,11 +10,12 @@ class auth_social_logins extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       height: MediaQuery.of(context).size.height * 0.06,
       width: MediaQuery.of(context).size.width * 02,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: theme.colorScheme.surface,
         border: Border.all(color: Colors.black12),
         borderRadius: BorderRadius.circular(30),
       ),
@@ -37,17 +38,11 @@ class auth_social_logins extends StatelessWidget {
               text,
               style: GoogleFonts.poppins(
                 fontSize: 16.sp,
-                color: Color.fromARGB(255, 44, 44, 44),
                 fontWeight: FontWeight.w400,
               ),
             ),
           ),
         ),
-        Container(
-          height: 10,
-          width: 10,
-          color: Color.fromARGB(255, 255, 255, 255),
-        )
       ]),
     );
   }

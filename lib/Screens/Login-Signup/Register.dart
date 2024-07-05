@@ -1,9 +1,11 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/Screens/Login-Signup/Login.dart';
+import 'package:medical/Screens/Views/Dashboard_screen.dart';
+import 'package:medical/Screens/Views/HomePage.dart';
 import 'package:medical/Screens/Widgets/Auth_text_field.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Make sure to import Dashboard
 
 // ignore: camel_case_types
 class register extends StatefulWidget {
@@ -16,15 +18,25 @@ class _registerState extends State<register> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
           icon: Container(
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.06,
-              child: Image.asset("lib/icons/back2.png")),
+            padding: EdgeInsets.all(8), // Padding around the image
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey
+                  .withOpacity(0.3), // Background color behind the image
+            ),
+            child: Image.asset(
+              "lib/icons/back1.png",
+              width: 30, // Adjust the size of the image
+              height: 30,
+            ),
+          ),
           onPressed: () {
             Navigator.push(
                 context,
@@ -35,13 +47,10 @@ class _registerState extends State<register> {
         title: Text(
           "Sign up",
           style: GoogleFonts.inter(
-              color: Colors.black87,
-              fontSize: 22.sp,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0),
+              fontSize: 22.sp, fontWeight: FontWeight.w700, letterSpacing: 0),
         ),
         toolbarHeight: 110,
-        backgroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.surface,
         elevation: 0,
       ),
       body: Padding(
@@ -62,7 +71,7 @@ class _registerState extends State<register> {
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     focusColor: Colors.black26,
-                    fillColor: Color.fromARGB(255, 247, 247, 247),
+                    fillColor: theme.colorScheme.surface,
                     filled: true,
                     prefixIcon: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -108,7 +117,6 @@ class _registerState extends State<register> {
               Text(
                 "I agree to the terms and conditions",
                 style: GoogleFonts.poppins(
-                  color: Colors.black,
                   fontSize: 14.sp,
                 ),
               ),
@@ -122,7 +130,10 @@ class _registerState extends State<register> {
             width: MediaQuery.of(context).size.width * 0.9,
             child: ElevatedButton(
               onPressed: () {
-                // Perform verification or other actions here
+                Navigator.pushReplacement(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.fade, child: Homepage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 3, 190, 150),
@@ -150,8 +161,7 @@ class _registerState extends State<register> {
             children: [
               Text(
                 "Already have an account? ",
-                style:
-                    GoogleFonts.poppins(fontSize: 14.sp, color: Colors.black87),
+                style: GoogleFonts.poppins(fontSize: 14.sp),
               ),
               GestureDetector(
                 onTap: () {

@@ -14,9 +14,18 @@ class art1 extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             icon: Container(
-                height: MediaQuery.of(context).size.height * 0.06,
-                width: MediaQuery.of(context).size.width * 0.06,
-                child: Image.asset("lib/icons/back2.png")),
+              padding: EdgeInsets.all(8), // Padding around the image
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.grey
+                    .withOpacity(0.3), // Background color behind the image
+              ),
+              child: Image.asset(
+                "lib/icons/back1.png",
+                width: 30, // Adjust the size of the image
+                height: 30,
+              ),
+            ),
             onPressed: () {
               Navigator.pushReplacement(
                   context,

@@ -55,22 +55,26 @@ class _TabBarExampleState extends State<message_tab_all>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const SettingsPage(),
-                    ),
-                  );
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.06,
-                  child: Image.asset(
-                    "lib/icons/bell.png",
-                    filterQuality: FilterQuality.high,
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsPage(),
                   ),
-                )),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey.withOpacity(0.3),
+                ),
+                child: Image.asset(
+                  "lib/icons/bell.png",
+                  width: 24,
+                  height: 24,
+                ),
+              ),
+            ),
           ),
         ],
         backgroundColor: theme.colorScheme.surface,

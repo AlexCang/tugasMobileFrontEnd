@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:medical/Screens/Views/LoadingScreen.dart';
+import 'package:medical/Screens/Widgets/theme/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:medical/Screens/Login-Signup/Login.dart';
 import 'package:medical/Screens/Widgets/settings.dart';
 import 'package:medical/Screens/Widgets/theme.dart';
-import 'package:medical/Screens/Widgets/theme/theme.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:provider/provider.dart';
+import 'package:medical/Screens/Views/appointment_provider.dart';
 
 void main() {
   runApp(const Medics());
@@ -25,19 +27,18 @@ class MedicsState extends State<Medics> {
         providers: [
           ChangeNotifierProvider(create: (context) => SettingsProvider()),
           ChangeNotifierProvider(create: (context) => ThemeProvider()),
+          ChangeNotifierProvider(create: (context) => AppointmentProvider()),
         ],
-        child: ChangeNotifierProvider(
-          create: (BuildContext context) => ThemeProvider()..init,
-          child: Consumer<ThemeProvider>(
-            builder: (context, ThemeProvider notifier, child) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'Flutter Demo',
-                darkTheme: notifier.isDark ? darkTheme : lightTheme,
-                home: const Screen1(),
-              );
-            },
-          ),
+        child: Consumer<ThemeProvider>(
+          builder: (context, ThemeProvider notifier, child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Medics',
+              darkTheme: notifier.isDark ? darkTheme : lightTheme,
+              themeMode: notifier.isDark ? ThemeMode.dark : ThemeMode.light,
+              home: const Screen1(),
+            );
+          },
         ),
       );
     });

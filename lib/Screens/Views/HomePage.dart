@@ -22,7 +22,7 @@ class _HomepageState extends State<Homepage> {
   int page = 0;
 
   List<Widget> pages = [
-    Dashboard(), // You can replace this with your actual pages
+    Dashboard(),
     message_tab_all(),
     schedule_screen(),
     Profile_screen()

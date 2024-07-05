@@ -9,26 +9,26 @@ ThemeData lightTheme = ThemeData(
   //   foregroundColor: Colors.black,
   // ),
   colorScheme: ColorScheme.light(
-    background: Colors.grey.withOpacity(0.2),
+    background: Colors.grey,
     primary: Colors.white,
     secondary: Colors.grey.shade600,
-    tertiary: Colors.red,
+    tertiary: const Color.fromARGB(255, 3, 190, 150),
   ),
 );
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: Colors.blue,
-  scaffoldBackgroundColor: Colors.black87,
+  scaffoldBackgroundColor: Colors.black,
   // appBarTheme: const AppBarTheme(
   //   backgroundColor: Colors.blue,
   //   foregroundColor: Colors.white,
   // ),
   colorScheme: ColorScheme.dark(
-    surface: Colors.black54,
-    background: Colors.black.withOpacity(0.8),
+    surface: Colors.black,
+    background: Colors.black,
     primary: Colors.black,
     secondary: Colors.grey.shade600,
-    tertiary: Colors.red,
+    tertiary: const Color.fromARGB(255, 3, 190, 150),
   ),
 );

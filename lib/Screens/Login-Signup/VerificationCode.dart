@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/Screens/Login-Signup/Login.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class verification_code extends StatelessWidget {
@@ -7,10 +9,32 @@ class verification_code extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Container(
+            padding: EdgeInsets.all(8), // Padding around the image
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey
+                  .withOpacity(0.3), // Background color behind the image
+            ),
+            child: Image.asset(
+              "lib/icons/back1.png",
+              width: 30, // Adjust the size of the image
+              height: 30,
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.leftToRight, child: login()));
+          },
+        ),
+        backgroundColor: theme.colorScheme.surface,
         toolbarHeight: 80,
         elevation: 0,
       ),
@@ -41,9 +65,9 @@ class verification_code extends StatelessWidget {
               Text(
                 "Enter verification code we have sent to your\nnumber",
                 style: GoogleFonts.poppins(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black54),
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ],
           ),
@@ -76,7 +100,8 @@ class verification_code extends StatelessWidget {
                     ),
                     maxLength: 1,
                     style: TextStyle(
-                        fontSize: 20.sp), // Adjust font size as desired
+                        fontSize: 20.sp,
+                        color: Colors.black), // Adjust font size as desired
                   ),
                 ),
               ),
@@ -103,7 +128,8 @@ class verification_code extends StatelessWidget {
                     ),
                     maxLength: 1,
                     style: TextStyle(
-                        fontSize: 20.sp), // Adjust font size as desired
+                        fontSize: 20.sp,
+                        color: Colors.black), // Adjust font size as desired
                   ),
                 ),
               ),
@@ -129,7 +155,8 @@ class verification_code extends StatelessWidget {
                     ),
                     maxLength: 1,
                     style: TextStyle(
-                        fontSize: 20.sp), // Adjust font size as desired
+                        fontSize: 20.sp,
+                        color: Colors.black), // Adjust font size as desired
                   ),
                 ),
               ),
@@ -155,7 +182,8 @@ class verification_code extends StatelessWidget {
                     ),
                     maxLength: 1,
                     style: TextStyle(
-                        fontSize: 20.sp), // Adjust font size as desired
+                        fontSize: 20.sp,
+                        color: Colors.black), // Adjust font size as desired
                   ),
                 ),
               ),
@@ -197,8 +225,7 @@ class verification_code extends StatelessWidget {
             children: [
               Text(
                 "Don't recieve code yet? ",
-                style:
-                    GoogleFonts.poppins(fontSize: 15.sp, color: Colors.black87),
+                style: GoogleFonts.poppins(fontSize: 15.sp),
               ),
               Text(
                 "Resend",

@@ -31,14 +31,24 @@ class _TabBarExampleState extends State<forgot_pass>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
           icon: Container(
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.06,
-              child: Image.asset("lib/icons/back2.png")),
+            padding: EdgeInsets.all(8), // Padding around the image
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey
+                  .withOpacity(0.3), // Background color behind the image
+            ),
+            child: Image.asset(
+              "lib/icons/back1.png",
+              width: 30, // Adjust the size of the image
+              height: 30,
+            ),
+          ),
           onPressed: () {
             Navigator.push(
                 context,
@@ -46,7 +56,7 @@ class _TabBarExampleState extends State<forgot_pass>
                     type: PageTransitionType.topToBottom, child: login()));
           },
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.surface,
         toolbarHeight: 80,
         elevation: 0,
       ),
@@ -80,9 +90,9 @@ class _TabBarExampleState extends State<forgot_pass>
                   Text(
                     "Enter your email or your phone number, we\nwill send you confirmation code",
                     style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black54),
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
                   )
                 ],
               ),
@@ -101,8 +111,8 @@ class _TabBarExampleState extends State<forgot_pass>
                         decoration: BoxDecoration(
                           border: Border.all(
                               color: Color.fromARGB(255, 235, 235, 235)),
-                          color: Color.fromARGB(255, 241, 241, 241),
-                          borderRadius: BorderRadius.circular(30),
+                          color: theme.colorScheme.surface,
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           children: [
@@ -111,11 +121,10 @@ class _TabBarExampleState extends State<forgot_pass>
                               child: TabBar(
                                 indicator: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(25),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 indicatorColor:
                                     const Color.fromARGB(255, 241, 241, 241),
-                                unselectedLabelColor: Colors.grey,
                                 labelColor:
                                     const Color.fromARGB(255, 3, 190, 150),
                                 controller: tabController,

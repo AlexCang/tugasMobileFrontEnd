@@ -9,8 +9,9 @@ class tab2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       body: Column(children: [
         SizedBox(
           height: 40,
@@ -27,7 +28,7 @@ class tab2 extends StatelessWidget {
               textAlignVertical: TextAlignVertical.center,
               decoration: InputDecoration(
                   focusColor: Colors.black26,
-                  fillColor: Color.fromARGB(255, 247, 247, 247),
+                  fillColor: theme.colorScheme.surface,
                   filled: true,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.symmetric(
